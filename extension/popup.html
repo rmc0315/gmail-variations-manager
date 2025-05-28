@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gmail Variations Manager</title>
+    <style>
+        body {
+            width: 400px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #1a73e8;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .stats {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .stats h3 {
+            margin: 0 0 10px 0;
+            color: #5f6368;
+            font-size: 14px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .stat-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a73e8;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #5f6368;
+        }
+        .current-email {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+        .current-email h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #1967d2;
+        }
+        .current-email p {
+            margin: 0;
+            font-size: 14px;
+            font-family: monospace;
+            color: #202124;
+        }
+        .domain-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .domain-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .domain-name {
+            font-weight: bold;
+            color: #202124;
+        }
+        .domain-count {
+            color: #5f6368;
+            font-size: 14px;
+        }
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .action-buttons button {
+            font-size: 14px;
+            padding: 8px;
+        }
+        .reset-btn {
+            background-color: #ea4335;
+        }
+        .reset-btn:hover {
+            background-color: #c23321;
+        }
+        .export-btn {
+            background-color: #34a853;
+        }
+        .export-btn:hover {
+            background-color: #2d8e47;
+        }
+        #emailList {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+        .email-item {
+            padding: 5px;
+            font-size: 12px;
+            font-family: monospace;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .email-item:last-child {
+            border-bottom: none;
+        }
+        .toggle-list {
+            background-color: #f1f3f4;
+            color: #5f6368;
+            font-size: 14px;
+            padding: 8px;
+            margin-top: 10px;
+        }
+        .toggle-list:hover {
+            background-color: #e8eaed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gmail Variations Manager</h1>
+        
+        <div class="input-section">
+            <input type="email" id="emailInput" placeholder="Enter your Gmail address" />
+            <button id="generateBtn">Generate Variations</button>
+        </div>
+
+        <div id="results" style="display: none;">
+            <div class="stats">
+                <h3>Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalVariations">0</div>
+                        <div class="stat-label">Total Variations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="usedCount">0</div>
+                        <div class="stat-label">Used Emails</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="current-email" id="currentEmailSection" style="display: none;">
+                <h3>Current Email in Queue:</h3>
+                <p id="currentEmail"></p>
+                <button id="copyEmailBtn" style="margin-top: 10px; font-size: 14px; padding: 8px;">Copy Current Email</button>
+            </div>
+
+            <button class="toggle-list" id="toggleListBtn">Show All Variations</button>
+            <div id="emailList"></div>
+
+            <div class="domain-section" id="domainSection">
+                <h3 style="margin-bottom: 10px;">Domain Usage</h3>
+                <div id="domainList"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="export-btn" id="exportBtn">Export Data</button>
+                <button class="reset-btn" id="resetBtn">Reset All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
