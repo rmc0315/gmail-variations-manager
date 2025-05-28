@@ -7,6 +7,9 @@ A Chrome extension that generates and manages all possible Gmail address variati
 
 ## 🎯 Features
 
+![image](https://github.com/user-attachments/assets/1662bb05-3927-42e4-abcd-63b41ce5ffac)
+
+
 - **Generate All Variations**: Instantly create all possible dot combinations of your Gmail address
 - **Smart Queue System**: Each website maintains its own email queue
 - **Right-Click to Fill**: Quickly fill email fields with the next variation
@@ -29,6 +32,8 @@ A Chrome extension that generates and manages all possible Gmail address variati
 5. Select the extension folder
 
 ## 🚀 Usage
+
+![image](https://github.com/user-attachments/assets/9265750d-5445-46f3-9724-7b95bb1dd204)
 
 ### Getting Started
 1. Click the extension icon in your toolbar
