@@ -2,7 +2,7 @@
 
 A Chrome extension that generates and manages all possible Gmail address variations using the dot trick. Perfect for managing multiple accounts, testing, and organizing your digital life.
 
-![Gmail Variations Manager](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Gmail Variations Manager](https://img.shields.io/badge/version-1.0.1-blue.svg)
 ![Chrome Web Store](https://img.shields.io/badge/chrome-extension-green.svg)
 
 ## 🎯 Features
