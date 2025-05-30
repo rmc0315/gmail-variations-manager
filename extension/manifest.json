@@ -1,16 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Gmail Variations Manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate and manage all possible Gmail address variations using the dot trick. Cycle through different emails for each website.",
   "permissions": [
     "storage",
-    "activeTab",
-    "scripting",
     "clipboardWrite"
-  ],
-  "host_permissions": [
-    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -36,7 +31,5 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "author": "Your Name",
-  "homepage_url": "https://github.com/rmc0315/gmail-variations-manager",
   "offline_enabled": true
 }
