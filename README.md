@@ -20,7 +20,7 @@ A Chrome extension that generates and manages all possible Gmail address variati
 ## 📦 Installation
 
 ### From Chrome Web Store
-1. Visit the [Chrome Web Store page](#) (link coming soon)
+1. Visit the [Chrome Web Store page](#https://chromewebstore.google.com/detail/gmail-variations-manager/nfadmecgdfoclonkenadmiaajjgndlgh?pli=1) (link coming soon)
 2. Click "Add to Chrome"
 3. Click "Add Extension"
 
